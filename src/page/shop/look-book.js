@@ -8,8 +8,7 @@ const LookBook = () => {
     return (
         <>
             <Header />
-            <Banner title="Lookbook" />
-            <LookBooks />
+             <LookBooks />
             <InstgramSlider />
             <Footer />
         </>

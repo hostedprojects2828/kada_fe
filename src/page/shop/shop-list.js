@@ -9,8 +9,7 @@ const ShopList = () => {
     return (
         <>
             <Header />
-            <Banner title="Shop" />
-            <ShopLists />
+             <ShopLists />
             <InstgramSlider />
             <Footer />
         </>

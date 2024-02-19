@@ -7,8 +7,7 @@ const Compares = () => {
     return (
         <>
             <Header />
-            <Banner title="Compare" />
-            <Compare />
+             <Compare />
             <Footer />
         </>
     )

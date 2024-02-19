@@ -8,8 +8,7 @@ const ShopLeftSideBar = () => {
     return (
         <>
             <Header />
-            <Banner title="Shop" />
-            <LeftSideBar />
+             <LeftSideBar />
             <InstgramSlider />
             <Footer />
         </>

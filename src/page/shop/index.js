@@ -9,8 +9,7 @@ const ShopGrid = () => {
     return (
         <>
             <Header />
-            <Banner title="Shop" />
-            <Shop />
+             <Shop />
             <InstgramSlider />
             <Footer />
         </>

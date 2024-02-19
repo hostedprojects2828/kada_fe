@@ -9,8 +9,7 @@ const Shop = () => {
     return (
         <>
             <Header />
-            <Banner title="Shop" />
-            <ShopTwo />
+             <ShopTwo />
             <InstgramSlider />
             <Footer />
         </>

@@ -7,8 +7,7 @@ const WishLists = () => {
     return (
         <>
             <Header />
-            <Banner title="Wishlist" />
-            <Wishlist />
+             <Wishlist />
             <Footer />
         </>
     )

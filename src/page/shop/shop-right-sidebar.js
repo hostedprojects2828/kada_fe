@@ -9,8 +9,7 @@ const ShopRightSideBar = () => {
     return (
         <>
             <Header />
-            <Banner title="Shop" />
-            <RightSideBar />
+             <RightSideBar />
             <InstgramSlider />
             <Footer />
         </>
