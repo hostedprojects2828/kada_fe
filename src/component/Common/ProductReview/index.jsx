@@ -17,7 +17,7 @@ const ProductInfo = () => {
                         {[...Array(5).keys()].map((star, index) => (
                           <span>
                             <a href='#!' key={index}>
-                              <i className={`fa fa-star ${data.rating >= index+1 ? 'active-star': 'non-active'} `}></i>
+                              <i className={`fa fa-star ${data.rating >= index + 1 ? 'active-star' : 'non-active'} `}></i>
                             </a>
                           </span>
                         ))}
@@ -26,9 +26,14 @@ const ProductInfo = () => {
                     </div>
 
                     <div className='media-header mt-2'>
-                      <div className='media-name '>
-                        <p className='mobile-title'>{data.submitedBy}</p>
-                        <p className='mobile-title'>{data.date}</p>
+                      <div className='media-name d-flex'>
+                        <div className="profile mr-3">
+                          <img src="https://picsum.photos/50" alt="profile-avatar" className='rounded-circle' />
+                        </div>
+                        <div className="reviewer">
+                          <p className='mobile-title'>{data.submitedBy + 5555}</p>
+                          <p className='mobile-title'>{data.date}</p>
+                        </div>
                       </div>
                       <div className='post-share'>
                         <a href='#!' className='mobile-title'>
