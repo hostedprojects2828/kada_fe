@@ -50,7 +50,7 @@ const CartViewThree = () => {
                 <div className='image-qty  '>
                   <div className='image'>
                     {/* image */}
-                    <Link to='product-details-one/1'>
+                    <Link to='product-details-two/1'>
                       <img src={img1} alt='img' />
                     </Link>
                   </div>
@@ -120,7 +120,7 @@ const CartViewThree = () => {
                 <div className='row cart-products' key={item.id}>
                   <div className='col-sm-3 col-md-3 col-lg-3   '>
                     <div className='image'>
-                      <Link to='product-details-one/1'>
+                      <Link to='product-details-two/1'>
                         <img src={img1} alt='img' />
                       </Link>
                     </div>
@@ -177,13 +177,20 @@ const CartViewThree = () => {
                   {/* <h5>Shipping:</h5> */}
                   <form action='#!' id='total_cart_form_three'>
                     <label className=''>
-                      <h5>Price (9 item) <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>
+                        Price (9 item) <span className='rigth_cart'>$0.00</span>
+                      </h5>
                     </label>
                     <label className=''>
-                      <h5>Discount <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>
+                        Discount <span className='rigth_cart'>$0.00</span>
+                      </h5>
                     </label>
                     <label className=''>
-                      <h5>Delivery Charge <span className='rigth_cart'>$0.00</span></h5> <span className='rigth_cart'>$0.00</span>
+                      <h5>
+                        Delivery Charge <span className='rigth_cart'>$0.00</span>
+                      </h5>{' '}
+                      <span className='rigth_cart'>$0.00</span>
                     </label>
                   </form>
                   <div className='total_catr_three_bottom'>
@@ -192,9 +199,7 @@ const CartViewThree = () => {
                     </h5>
                   </div>
                   <div className='save_cart'>
-                    <h6>
-                      You will save $ 2,6800 on this order.
-                    </h6>
+                    <h6>You will save $ 2,6800 on this order.</h6>
                   </div>
 
                   <div className='cart_submit '>
@@ -204,7 +209,6 @@ const CartViewThree = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
