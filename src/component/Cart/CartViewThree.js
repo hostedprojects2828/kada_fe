@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { RatingStar } from 'rating-star';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,9 +19,9 @@ const CartViewThree = () => {
     dispatch({ type: 'products/removeCart', payload: { id } });
   };
   // Clear Cart
-  const clearCarts = () => {
-    dispatch({ type: 'products/clearCart' });
-  };
+  // const clearCarts = () => {
+  //   dispatch({ type: 'products/clearCart' });
+  // };
 
   // Quenty Inc Dec
   const incNum = (val, id) => {
