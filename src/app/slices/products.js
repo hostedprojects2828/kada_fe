@@ -18,7 +18,7 @@ const productsSlice = createSlice({
     // Get Single Product
     getProductById: (state, action) => {
       let { id } = action.payload;
-      let arr = state.products.find(item => item.id === parseInt(id));
+      let arr = state.products.find((item) => item.id === parseInt(id));
       state.single = arr;
     },
     // Add to Cart
@@ -26,10 +26,10 @@ const productsSlice = createSlice({
       let { id } = action.payload;
 
       // Check existance
-      let item = state.carts.find(i => i.id === parseInt(id));
+      let item = state.carts.find((i) => i.id === parseInt(id));
       if (item === undefined) {
         // Get Product
-        let arr = state.products.find(item => item.id === parseInt(id));
+        let arr = state.products.find((item) => item.id === parseInt(id));
         arr.quantity = 1;
         state.carts.push(arr);
         Swal.fire({
@@ -67,10 +67,10 @@ const productsSlice = createSlice({
       let { id } = action.payload;
 
       // Check existance
-      let item = state.compare.find(i => i.id === parseInt(id));
+      let item = state.compare.find((i) => i.id === parseInt(id));
       if (item === undefined) {
         // Get Product
-        let arr = state.products.find(item => item.id === parseInt(id));
+        let arr = state.products.find((item) => item.id === parseInt(id));
         state.compare.push(arr);
         Swal.fire({
           title: 'Success!',
@@ -96,36 +96,35 @@ const productsSlice = createSlice({
       let { qty, id } = action.payload;
       // console.log('action', action, qty);
       if (qty <= 0) {
-        //if the quantity is zero 
+        //if the quantity is zero
         //remove the product
-        let arr = state.carts.filter(item => item.id !== parseInt(id));
+        let arr = state.carts.filter((item) => item.id !== id);
         state.carts = arr;
       } else {
         // if the quantity more than 0
-        state.carts.forEach(item => {
-          if (item.id === parseInt(id)) {
+        state.carts.forEach((item) => {
+          if (item.id === id) {
             // console.log('item', item.id);
             item.quantity = qty;
           }
         });
-
       }
       // console.log('state', state);
     },
     // Remove Cart
     removeCart: (state, action) => {
       let { id } = action.payload;
-      let arr = state.carts.filter(item => item.id !== parseInt(id));
+      let arr = state.carts.filter((item) => item.id !== parseInt(id));
       state.carts = arr;
     },
     // Delete from Compare
     delCompare: (state, action) => {
       let { id } = action.payload;
-      let arr = state.compare.filter(item => item.id !== parseInt(id));
+      let arr = state.compare.filter((item) => item.id !== parseInt(id));
       state.compare = arr;
     },
     // Clear Cart
-    clearCart: state => {
+    clearCart: (state) => {
       state.carts = [];
     },
     // Add to Favorite / Wishlist
@@ -133,10 +132,10 @@ const productsSlice = createSlice({
       let { id } = action.payload;
 
       // Check existance
-      let item = state.favorites.find(i => i.id === parseInt(id));
+      let item = state.favorites.find((i) => i.id === parseInt(id));
       if (item === undefined) {
         // Get Product
-        let arr = state.products.find(item => item.id === parseInt(id));
+        let arr = state.products.find((item) => item.id === parseInt(id));
         arr.quantity = 1;
         state.favorites.push(arr);
         Swal.fire('Success', 'Added to Wishlist', 'success');
@@ -147,7 +146,7 @@ const productsSlice = createSlice({
     // Remove from Favorite / Wishlist
     removeFav: (state, action) => {
       let { id } = action.payload;
-      let arr = state.favorites.filter(item => item.id !== id);
+      let arr = state.favorites.filter((item) => item.id !== id);
       state.favorites = arr;
     },
   },
