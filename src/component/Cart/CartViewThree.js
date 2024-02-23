@@ -9,10 +9,10 @@ const CartViewThree = () => {
   const carts = useSelector((state) => state.products.carts);
   const totalRef = useRef(null);
 
-  useEffect(() => {
-    console.log('carts----', carts);
+  // useEffect(() => {
+  //   console.log('carts----', carts);
 
-  },[carts])
+  // },[carts])
 
   // Remove Product
   const rmProduct = (id) => {
@@ -152,7 +152,7 @@ const CartViewThree = () => {
                     <div className='price'>
                       <p>53% Off applied</p>
                       <h4>
-                      <del>{item.discountPrice}</del> {item.price}
+                        <del>{item.discountPrice}</del> {item.price}
                       </h4>
                     </div>
                     <div className='btns'>
@@ -177,15 +177,15 @@ const CartViewThree = () => {
                   {/* <h5>Shipping:</h5> */}
                   <form action='#!' id='total_cart_form_three'>
                     <label className=''>
-                    <h5>Price (9 item) <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>Price (9 item) <span className='rigth_cart'>$0.00</span></h5>
                     </label>
                     <label className=''>
-                    <h5>Discount <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>Discount <span className='rigth_cart'>$0.00</span></h5>
                     </label>
                     <label className=''>
-                    <h5>Delivery Charge <span className='rigth_cart'>$0.00</span></h5> <span className='rigth_cart'>$0.00</span>
+                      <h5>Delivery Charge <span className='rigth_cart'>$0.00</span></h5> <span className='rigth_cart'>$0.00</span>
                     </label>
-                   </form>
+                  </form>
                   <div className='total_catr_three_bottom'>
                     <h5>
                       Total Cart <span className='rigth_cart'>$50.00</span>
@@ -196,7 +196,7 @@ const CartViewThree = () => {
                       You will save $ 2,6800 on this order.
                     </h6>
                   </div>
-                  
+
                   <div className='cart_submit '>
                     <Link to='/checkout-one' className='theme-btn-one btn-black-overlay btn_sm'>
                       Place Order
@@ -204,7 +204,7 @@ const CartViewThree = () => {
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
