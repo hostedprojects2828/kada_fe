@@ -26,7 +26,7 @@ const LeftSideBar = () => {
                         <div className="col-lg-9">
                             <div className="row">
                                 {products.slice(0,12).map((data, index) => (
-                                    <div className="col-lg-4 col-md-4 col-sm-6 col-12" key={index}>
+                                    <div className="col-lg-4 col-md-4 col-sm-6 col-6" key={index}>
                                         <ProductCard data={data} />
                                     </div>
                                 ))}

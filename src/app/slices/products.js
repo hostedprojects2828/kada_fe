@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // Demo Data
-import { ProductData,CartProduct } from '../data/productsData';
+import { ProductData, CartProduct } from '../data/productsData';
 // Alert
 import Swal from 'sweetalert2';
 
@@ -94,16 +94,23 @@ const productsSlice = createSlice({
     // Update Cart
     updateCart: (state, action) => {
       let { qty, id } = action.payload;
-      console.log('action', action);
+      // console.log('action', action, qty);
+      if (qty <= 0) {
+        //if the quantity is zero 
+        //remove the product
+        let arr = state.carts.filter(item => item.id !== parseInt(id));
+        state.carts = arr;
+      } else {
+        // if the quantity more than 0
+        state.carts.forEach(item => {
+          if (item.id === parseInt(id)) {
+            // console.log('item', item.id);
+            item.quantity = qty;
+          }
+        });
 
-      state.carts.forEach(item => {
-        
-        if (item.id === parseInt(id)) {
-          console.log('item', item.id);
-          item.quantity = qty;
-        }
-      });
-      console.log('state', state);
+      }
+      // console.log('state', state);
     },
     // Remove Cart
     removeCart: (state, action) => {

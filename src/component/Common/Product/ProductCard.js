@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
+// import { AiOutlineHeart } from 'react-icons/ai';
 import { AiOutlineExpand } from 'react-icons/ai';
-import { FaExchangeAlt } from 'react-icons/fa';
+// import { FaExchangeAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import MyVerticallyCenteredModal from '../../Common/Modal';
@@ -59,10 +59,13 @@ const ProductCard = (props) => {
           <span className='price'>
             <span className='new'>
               ${props.data.price}.00 &nbsp;
-              {props.data.discountPrice ? <del>${parseInt(props.data.discountPrice) + 17}.00</del>: ''}
+              {props.data.discountPrice ? <del className='d-none d-md-block'>${parseInt(props.data.discountPrice) + 17}.00</del> : ''}
             </span>
           </span>
         </div>
+        <button type='button' className='d-sm-block d-md-none d-lg-none w-100' onClick={() => addToCart(props.data.id)}>
+          Add to cart
+        </button>
       </div>
 
       <MyVerticallyCenteredModal data={props.data} show={modalShow} onHide={() => setModalShow(false)} />

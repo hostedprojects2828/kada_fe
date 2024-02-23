@@ -4,37 +4,42 @@ import search from '../../assets/img/svg/search.svg'
 
 
 const SideBar = (props) => {
-
-    useEffect(()=>{
+    const [open, setOpen] = useState(false)
+    useEffect(() => {
         document.querySelectorAll("input[type='radio']").forEach((input) => {
-            input.addEventListener('change', function(){
+            input.addEventListener('change', function () {
                 props.filterEvent(1)
             });
         });
-        
-        document.querySelector("input[type='range']").addEventListener('change', function(e){
-            setPrice(e.target.value) ;
-            props.filterEvent(1);
-            });
 
-    },[props])
-    
+        document.querySelector("input[type='range']").addEventListener('change', function (e) {
+            setPrice(e.target.value);
+            props.filterEvent(1);
+        });
+
+    }, [props])
+
     const [price, setPrice] = useState(100)
     return (
         <>
-           <div className="col-lg-3">
-                    <div className="shop_sidebar_wrapper">
+            <div className="col-lg-3">
+                <div className='d-flex justify-content-between d-sm-none '>
+                    <div className='all-product-header mb-2'>All Products</div>
+                    <i onClick={() => setOpen(!open)} className="fa fa-sliders pe-auto"></i>
+                </div>
+                <>
+                    <div className={`shop_sidebar_wrapper ${!open && "d-none d-sm-block"}`} >
                         <div className="shop_Search">
                             <form>
-                                <input type="text" className="form-control" placeholder="Search..." onKeyUp={() => {props.filterEvent(1)}} />
+                                <input type="text" className="form-control" placeholder="Search..." onKeyUp={() => { props.filterEvent(1) }} />
                                 <button><img src={search} alt="img" /></button>
                             </form>
                         </div>
-                        <div className="shop_sidebar_boxed">
+                        <div className={`shop_sidebar_boxed ${!open && "d-none d-sm-block"}`}>
                             <h4>Product Categories</h4>
                             <form>
                                 <label className="custom_boxed">ALL
-                                    <input type="radio" name="radio" defaultChecked/>
+                                    <input type="radio" name="radio" defaultChecked />
                                     <span className="checkmark"></span>
                                 </label>
                                 <label className="custom_boxed">T-shirts
@@ -66,7 +71,7 @@ const SideBar = (props) => {
                         <div className="shop_sidebar_boxed">
                             <h4>Price</h4>
                             <div className="price_filter">
-                               <input type="range" min="10" max="200" defaultValue={price} className="form-control-range" id="formControlRange" />
+                                <input type="range" min="10" max="200" defaultValue={price} className="form-control-range" id="formControlRange" />
                                 <div className="price_slider_amount mt-2">
                                     <span>Price : {price}</span>
                                 </div>
@@ -144,7 +149,7 @@ const SideBar = (props) => {
                                     <span className="checkmark"></span>
                                 </label>
                                 <label className="custom_boxed">Calvin Klein
-                                    <input type="radio" name="radio" defaultChecked/>
+                                    <input type="radio" name="radio" defaultChecked />
                                     <span className="checkmark"></span>
                                 </label>
                                 <label className="custom_boxed">Nike
@@ -160,12 +165,13 @@ const SideBar = (props) => {
                                     <span className="checkmark"></span>
                                 </label>
                                 <div className="clear_button">
-                                    <button className="theme-btn-one btn_sm btn-black-overlay" type="button" onClick={() => {props.filterEvent(1)}}>Clear Filter</button>
+                                    <button className="theme-btn-one btn_sm btn-black-overlay" type="button" onClick={() => { props.filterEvent(1) }}>Clear Filter</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div> 
+                </>
+            </div>
         </>
     )
 }
