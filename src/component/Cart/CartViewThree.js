@@ -9,8 +9,8 @@ const CartViewThree = () => {
   const totalRef = useRef(null);
 
   //cart calculations
-  const cartTotal = carts.reduce((total, item) => total + (item?.price || 0) * item.quantity, 0)
-  const cartTotalDiscounts = carts.reduce((total, item) => total + (item?.discountPrice || 0) * item.quantity, 0)
+  const cartTotal = carts.reduce((total, item) => total + (item?.price || 0) * item.quantity, 0);
+  const cartTotalDiscounts = carts.reduce((total, item) => total + (item?.discountPrice || 0) * item.quantity, 0);
 
   // Remove Product
   const rmProduct = (id) => {
@@ -18,9 +18,9 @@ const CartViewThree = () => {
   };
 
   // Clear Cart
-  // const clearCarts = () => {
-  //   dispatch({ type: 'products/clearCart' });
-  // };
+  const clearCarts = () => {
+    dispatch({ type: 'products/clearCart' });
+  };
 
   // Quey Inc Dec
   const incNum = (val, id) => {
@@ -77,7 +77,9 @@ const CartViewThree = () => {
                   <p>49mm</p>
                   <div className='rating'>
                     <RatingStar maxScore={5} rating={item.rating.rate} />
-                    <p>({item.rating.rate} /{item.rating.count} rating)</p>
+                    <p>
+                      ({item.rating.rate} /{item.rating.count} rating)
+                    </p>
                   </div>
                   <div className='price'>
                     <p>53% Off applied</p>
@@ -103,9 +105,12 @@ const CartViewThree = () => {
               </div>
             </div>
             <div className='btns'>
-              <button onClick={() => console.log('remove')} className='btn theme-btn-one bg-black btn_sm mt-1'>
+              <Link to='/checkout-one' className='btn theme-btn-one bg-black btn_sm mt-1'>
                 Place Order
-              </button>
+              </Link>
+              <Link onClick={() => clearCarts()} className='btn theme-btn-one bg-black btn_sm mt-1 ml-2'>
+                Clear
+              </Link>
             </div>
           </div>
         </div>
@@ -144,8 +149,7 @@ const CartViewThree = () => {
                     <h5>{item.title}</h5>
                     <p>49mm</p>
                     <div className='rating'>
-                      <RatingStar maxScore={5} rating={item.rating.rate} />
-                      ({item.rating.rate} /{item.rating.count} rating)
+                      <RatingStar maxScore={5} rating={item.rating.rate} />({item.rating.rate} /{item.rating.count} rating)
                     </div>
                     <div className='price'>
                       <p>53% Off applied</p>
@@ -203,6 +207,9 @@ const CartViewThree = () => {
                   <div className='cart_submit '>
                     <Link to='/checkout-one' className='theme-btn-one btn-black-overlay btn_sm'>
                       Place Order
+                    </Link>
+                    <Link onClick={() => clearCarts()} className='theme-btn-one btn-black-overlay btn_sm ml-3'>
+                      Clear
                     </Link>
                   </div>
                 </div>
