@@ -3,27 +3,26 @@ import { Link } from 'react-router-dom';
 import { RatingStar } from 'rating-star';
 import { useDispatch, useSelector } from 'react-redux';
 
-import img1 from '../../assets/img/product-image/product13.png';
 const CartViewThree = () => {
   let dispatch = useDispatch();
   const carts = useSelector((state) => state.products.carts);
   const totalRef = useRef(null);
 
-  // useEffect(() => {
-  //   console.log('carts----', carts);
-
-  // },[carts])
+  //cart calculations
+  const cartTotal = carts.reduce((total, item) => total + (item?.price || 0) * item.quantity, 0)
+  const cartTotalDiscounts = carts.reduce((total, item) => total + (item?.discountPrice || 0) * item.quantity, 0)
 
   // Remove Product
   const rmProduct = (id) => {
     dispatch({ type: 'products/removeCart', payload: { id } });
   };
+
   // Clear Cart
   // const clearCarts = () => {
   //   dispatch({ type: 'products/clearCart' });
   // };
 
-  // Quenty Inc Dec
+  // Quey Inc Dec
   const incNum = (val, id) => {
     const qty = val + 1;
     dispatch({ type: 'products/updateCart', payload: { qty, id } });
@@ -49,9 +48,8 @@ const CartViewThree = () => {
               <div className='products' key={item.id}>
                 <div className='image-qty  '>
                   <div className='image'>
-                    {/* image */}
-                    <Link to='product-details-one/1'>
-                      <img src={img1} alt='img' />
+                    <Link to='product-details-two/1'>
+                      <img src={item.img} alt='img' />
                     </Link>
                   </div>
                   <div className='quntity-form'>
@@ -75,11 +73,11 @@ const CartViewThree = () => {
 
                 <div className='product-details'>
                   {/* Description */}
-                  <h5>Lenskart Blu Full Rim Square Frame</h5>
+                  <h5>{item.title}</h5>
                   <p>49mm</p>
                   <div className='rating'>
-                    <RatingStar maxScore={5} rating={4} />
-                    <p>(4/5 rating)</p>
+                    <RatingStar maxScore={5} rating={item.rating.rate} />
+                    <p>({item.rating.rate} /{item.rating.count} rating)</p>
                   </div>
                   <div className='price'>
                     <p>53% Off applied</p>
@@ -98,9 +96,9 @@ const CartViewThree = () => {
           ))}
           <div className='mobile-placeorder '>
             <div>
-              <del>1,60,890</del>
+              <del>{cartTotalDiscounts}</del>
               <div className='d-flex align-items-center' onClick={handleScrollToTotal}>
-                <p>46,900</p>
+                <p>{cartTotal}</p>
                 <i className='fa fa-info-circle ml-2' aria-hidden='true'></i>
               </div>
             </div>
@@ -120,8 +118,8 @@ const CartViewThree = () => {
                 <div className='row cart-products' key={item.id}>
                   <div className='col-sm-3 col-md-3 col-lg-3   '>
                     <div className='image'>
-                      <Link to='product-details-one/1'>
-                        <img src={img1} alt='img' />
+                      <Link to={`product-details-two/&#8377;{item.id}`}>
+                        <img src={item.img} alt='img' />
                       </Link>
                     </div>
                     <div className='quntity-form'>
@@ -143,11 +141,11 @@ const CartViewThree = () => {
                     </div>
                   </div>
                   <div className='col-sm-6 col-lg-5  product-details'>
-                    <h5>Lenskart Blu Full Rim Square Frame</h5>
+                    <h5>{item.title}</h5>
                     <p>49mm</p>
                     <div className='rating'>
-                      <RatingStar maxScore={5} rating={4} />
-                      (4/5 rating)
+                      <RatingStar maxScore={5} rating={item.rating.rate} />
+                      ({item.rating.rate} /{item.rating.count} rating)
                     </div>
                     <div className='price'>
                       <p>53% Off applied</p>
@@ -163,7 +161,7 @@ const CartViewThree = () => {
                   </div>
                   <div className='col-lg-4 col-sm-12'>
                     <p className='dilivery'>
-                      Delivery by Wed Nov 1 | <del>$100</del>
+                      Delivery by Wed Nov 1 | <del>&#8377;100</del>
                     </p>
                   </div>
                 </div>
@@ -177,24 +175,29 @@ const CartViewThree = () => {
                   {/* <h5>Shipping:</h5> */}
                   <form action='#!' id='total_cart_form_three'>
                     <label className=''>
-                      <h5>Price (9 item) <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>
+                        Price ({carts.length} item) <span className='rigth_cart'>&#8377; {cartTotal}</span>
+                      </h5>
                     </label>
                     <label className=''>
-                      <h5>Discount <span className='rigth_cart'>$0.00</span></h5>
+                      <h5>
+                        Discount <span className='rigth_cart'>&#8377; {cartTotalDiscounts}</span>
+                      </h5>
                     </label>
                     <label className=''>
-                      <h5>Delivery Charge <span className='rigth_cart'>$0.00</span></h5> <span className='rigth_cart'>$0.00</span>
+                      <h5>
+                        Delivery Charge <span className='rigth_cart'>&#8377; 0.00</span>
+                      </h5>{' '}
+                      <span className='rigth_cart'>&#8377; 0.00</span>
                     </label>
                   </form>
                   <div className='total_catr_three_bottom'>
                     <h5>
-                      Total Cart <span className='rigth_cart'>$50.00</span>
+                      Total Cart <span className='rigth_cart'>&#8377; {cartTotal}</span>
                     </h5>
                   </div>
                   <div className='save_cart'>
-                    <h6>
-                      You will save $ 2,6800 on this order.
-                    </h6>
+                    <h6>You will save &#8377; {cartTotalDiscounts} on this order.</h6>
                   </div>
 
                   <div className='cart_submit '>
@@ -204,7 +207,6 @@ const CartViewThree = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

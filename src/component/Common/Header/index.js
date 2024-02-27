@@ -135,9 +135,9 @@ const Header = () => {
                   </div> */}
 
                   <ul className='header-action-link action-color--black action-hover-color--golden'>
-                  
+
                     <li>
-                  
+
                       {carts.length ? (
                         <a href='#!' className='offcanvas-toggle letter-space' onClick={handleClick}>
                           <i className='fa fa-shopping-bag'></i>
@@ -217,7 +217,7 @@ const Header = () => {
             </div>
           </div>
           {/* Search bar. */}
-          <form>
+          <form className='d-none d-md-block'>
             <div className='row mt-3'>
               <div className='col-lg-12 col-md-12 col-sm-12 col-12 search-input'>
                 <button type='submit'>
