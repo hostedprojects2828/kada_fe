@@ -1270,11 +1270,11 @@ export const CartProduct = [
       count: 30,
     },
     quantity: 6,
-    
+
     offerType: [OFFER_TYPE.newArrival, OFFER_TYPE.trending, OFFER_TYPE.todaysDeal],
   },
   {
-    id: 1,
+    id: 2,
     labels: 'Trending',
     category: 'fashion',
     brand: 'fast track',
@@ -1290,7 +1290,7 @@ export const CartProduct = [
       count: 30,
     },
     quantity: 1,
-    
+
     offerType: [OFFER_TYPE.newArrival, OFFER_TYPE.trending, OFFER_TYPE.todaysDeal],
   },
 ];
