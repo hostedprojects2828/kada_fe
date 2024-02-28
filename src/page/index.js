@@ -5,6 +5,7 @@ import HotProduct from '../component/Fashion/HotProduct';
 import Trending from '../component/Fashion/Trending';
 import TodayDeal from '../component/Fashion/TodayDeal';
 import OfferTime from '../component/Fashion/OfferTime';
+import TypesOfProduct from '../component/Fashion/ProductsSliding';
 import Blog from '../component/Fashion/Blog';
 import InstgramSlider from '../component/Common/Instagram';
 import Footer from '../component/Common/Footer';
@@ -15,6 +16,7 @@ const Fashion = () => {
     <>
       <Header />
       <Banner />
+      <TypesOfProduct/>
       <BannerBottom />
       <HotProduct />
       <OfferTime />

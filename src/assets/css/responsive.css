@@ -649,6 +649,16 @@
         background-position: 65% 100%;
         background-size: cover;
     }
+    .type-of-product_slide-round_image {
+        width:  calc(20vw);
+        height: calc(20vw);
+      }
+    .type-of-product_main_slide {
+        margin: 2.5%;
+    }
+    .type-of-product_slide h4 {
+        font-size: 0.6rem;
+    }
 }
 
 @media (max-width: 480px) {
