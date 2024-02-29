@@ -9,18 +9,9 @@ const BillingsInfo = () => {
 
     useEffect(() => {
         let country = getCountries();
-        // const countryNames = country.map(countr => countr.name);
-
         setCountries(country);
-        // let country = getCountry('+91');
-        console.log('========   1   =========');
-        // console.log(countryNames);
-        return () => {
-         
-        };
-      }, []); 
+    }, []); 
 
-    //   let states = getStates('in');
 
     const handleSubmit = () => {
         setSubmitButtonClicked(true);
@@ -28,31 +19,29 @@ const BillingsInfo = () => {
 
     const formik =useFormik({
             initialValues:{
-                fname :'',
-                lname :'',
-                email :'',
-                phone :'',
-                country :'',
-                city :'',
-                zip :'',
-                faddress :'',
-                messages :'',
+                fname :localStorage.getItem("fname")??'',
+                lname :localStorage.getItem("lname")??'',
+                cname :localStorage.getItem("cname")??'',
+                email :localStorage.getItem("email")??'',
+                phone :localStorage.getItem("phone")??'',
+                country :localStorage.getItem("country")??'',
+                city :localStorage.getItem("city")??'',
+                zip :localStorage.getItem("zip")??'',
+                faddress :localStorage.getItem("faddress")??'',
+                messages :localStorage.getItem("messages")??'',
             },
             onSubmit: values =>{
-                console.log('Form values : ',values )
-
-                if (formik.errors.length==0) {
-                    localStorage.setItem('fname1', values.fname);
+                    localStorage.setItem('fname', values.fname);
                     localStorage.setItem('lname', values.lname); 
+                    localStorage.setItem('cname', values.cname); 
                     localStorage.setItem('email', values.email);
                     localStorage.setItem('phone', values.phone);
                     localStorage.setItem('country', values.country);
+                    localStorage.setItem('countryCode', values.countryCode);
                     localStorage.setItem('city', values.city);
                     localStorage.setItem('zip', values.zip);
                     localStorage.setItem('faddress', values.faddress);
-                }
-                const item = localStorage.getItem('fname');
-                console.log('fname',item);
+                    localStorage.setItem('messages', values.messages);
             },
             validate: values =>{
                 let errors ={}
@@ -107,12 +96,19 @@ const BillingsInfo = () => {
         const selectedCountry = e.target.value;
         let country = getCountry(selectedCountry);
         formik.values.country=country.name;
+        formik.values.countryCode=country.code;
         formik.handleChange(country.name);
         let states1 = getStates(selectedCountry);
         setStates(states1);
       };
+     const handleStateChange = (e) => {
+        const selectedcity = e.target.value;
+        formik.values.city=selectedcity;
+        formik.handleChange(selectedcity);
+      };
 
-      console.log('all values = ',formik.values);
+      const defaultCountryCode = localStorage.getItem('countryCode') || '';
+      const defaultCity = localStorage.getItem('city') || '';
 
     return (
         <>
@@ -150,7 +146,7 @@ const BillingsInfo = () => {
                                 <div className="col-lg-12 col-md-12 col-sm-=12 col-12">
                                     <div className="form-group">
                                         <label htmlFor="cname">Company Name<span className="text-danger">*</span></label>
-                                        <input className="form-control" required="" type="text" id="cname"
+                                        <input className="form-control" required="" type="text" id="cname" value={formik.values.cname} onChange={formik.handleChange}
                                             placeholder="Company Name" />
                                     </div>
                                 </div>
@@ -172,10 +168,10 @@ const BillingsInfo = () => {
                                     <div className="form-group">
                                         <label htmlFor="country">Country<span className="text-danger">*</span></label>
                                         
-                                        <select className="form-control first_null" id="country"  onChange={handleCountryChange} >
+                                        <select className="form-control first_null" id="country"  onChange={handleCountryChange}>
                                             <option defaultValue="">Select an option...</option>
                                             {countries.map(country => (
-                                            <option key={country.name} value={country.code}>{country.name}</option>
+                                            <option key={country.name} value={country.code} selected={defaultCountryCode === country.code}>{country.name}</option>
                                             ))}
                                         </select>
                                     </div>                  
@@ -183,10 +179,11 @@ const BillingsInfo = () => {
                                 <div className="col-lg-6 col-md-12 col-sm-=12 col-12">
                                     <div className="form-group">
                                         <label htmlFor="city">State/City<span className="text-danger">*</span></label>
-                                        <select className="form-control first_null" id="city" value={formik.values.city} onChange={formik.handleChange}>
+                                        <select className="form-control first_null" id="city"   onChange={handleStateChange}>
                                             <option defaultValue="">Select an option...</option>
+                                            {defaultCity && <option key={defaultCity} value={defaultCity} selected>{defaultCity}</option>}
                                             {states.map((district, index) => (
-                                            <option key={index} value={district}>{district}</option>
+                                            <option key={index} value={district} selected={defaultCity  === district} >{district}</option>
                                             ))}
                                         </select>
                                     </div>
@@ -219,7 +216,8 @@ const BillingsInfo = () => {
                                             Book</label>
                                     </div>
                                 </div>
-                            </div><div className="billing-info-save-button">
+                            </div>
+                            <div className="billing-info-save-button">
                                 <button value="Submit" name="submit" className="theme-btn-one btn_md btn-black-overlay"  onClick={handleSubmit}
                                   title="Submit Your Message!" type="submit">
                                   Save
