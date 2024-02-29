@@ -186,7 +186,7 @@ ul li {
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
- }
+}
 
 .center_heading p {
   padding-top: 10px;
@@ -2191,14 +2191,11 @@ button {
 .product_wrappers_one {
   overflow: hidden;
   /* width: 300px; */
-
 }
 
 .product_wrappers_one .thumb {
   position: relative;
   overflow: hidden;
- 
-  
 }
 
 .product_wrappers_one .thumb .image {
@@ -2214,8 +2211,7 @@ button {
   transition: all 0.3s ease 0s;
   width: 100%;
   height: 100%;
-
- }
+}
 
 .product_wrappers_one .thumb .image img.hover-image {
   position: absolute;
@@ -2299,7 +2295,6 @@ button {
   transform: translateY(20px);
   opacity: 0;
 }
- 
 
 .product_wrappers_one .thumb .actions .action.active {
   color: #ff7004;
@@ -2373,7 +2368,7 @@ button {
 
 .product_wrappers_one .content .price {
   font-size: 20px;
-   line-height: 1;
+  line-height: 1;
   display: flex;
   align-items: left;
   justify-content: left;
@@ -4134,13 +4129,12 @@ button {
   padding-top: 5px;
 }
 
-.active-star{
+.active-star {
   color: var(--main-theme-color);
 }
 
-
 .non-active {
-  color: rgba(137, 136, 136, 0.579)!important;
+  color: rgba(137, 136, 136, 0.579) !important;
 }
 
 #review .product_reviews .media-pragraph {
@@ -8748,7 +8742,6 @@ table {
 .total_catr_three_bottom h5 {
   font-weight: 500;
   font-size: 1.6rem;
-  
 }
 
 .total_catr_three_bottom h5 span {
@@ -8758,7 +8751,6 @@ table {
 .bottom_code {
   margin-top: 30px !important;
 }
-
 
 /* ----------------------------
     Product Details 3 Page
@@ -8894,7 +8886,7 @@ table {
 -------------------------------------*/
 
 .type-of-product_slide-round_image {
-  width:  calc(22vw);
+  width: calc(22vw);
   height: calc(22vw);
   border-radius: 50%;
   overflow: hidden;
@@ -8912,13 +8904,13 @@ table {
   object-fit: cover;
 }
 .type-of-product_custom-slider {
-  display :flex;
+  display: flex;
   flex-direction: row;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.type-of-product_custom-slider::-webkit-scrollbar{
+.type-of-product_custom-slider::-webkit-scrollbar {
   display: none;
 }
 .type-of-product_slide {
@@ -8930,4 +8922,19 @@ table {
 
 .type-of-product_slide h4 {
   font-size: 1.4rem;
+}
+/* ----------------------------
+    Checkout page Page
+-------------------------------*/
+.checkout-area-bg {
+  margin-bottom: 20px;
+}
+.billing-info-save-button {
+  margin-top: 10px;
+}
+.check-out-page-error-message {
+  color: red;
+  font-size: 14px;
+  padding: 2px;
+  margin: 2px 0;
 }
