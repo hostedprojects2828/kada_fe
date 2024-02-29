@@ -17,7 +17,7 @@ const Checkout = () => {
                         {/* if not loged in, show login page. */}
                         {/* <Login/> */}
                         {/* if address in not in DB, show billingInfo. */}
-                        {/* <BillingsInfo /> */}
+                        <BillingsInfo />
                         {/* if address avilable in DB, show address. */}
                         <Address/>
 

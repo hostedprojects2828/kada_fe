@@ -8888,3 +8888,20 @@ table {
   font-size: 16px;
   font-weight: 700;
 }
+
+
+/* ----------------------------
+    Checkout page Page
+-------------------------------*/
+.checkout-area-bg{
+  margin-bottom: 20px;
+}
+.billing-info-save-button{
+  margin-top: 10px;
+}
+.check-out-page-error-message {
+  color: red;
+  font-size: 14px;
+  padding: 2px;
+  margin: 2px 0;
+}
