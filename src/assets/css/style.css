@@ -8888,3 +8888,46 @@ table {
   font-size: 16px;
   font-weight: 700;
 }
+
+/* ---------------------------------
+   Type of ptoducts -- HOME
+-------------------------------------*/
+
+.type-of-product_slide-round_image {
+  width:  calc(22vw);
+  height: calc(22vw);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.type-of-product_main_slide {
+  margin: 1.5%;
+  margin-top: 40px;
+}
+
+.type-of-product_slide-round_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.type-of-product_custom-slider {
+  display :flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.type-of-product_custom-slider::-webkit-scrollbar{
+  display: none;
+}
+.type-of-product_slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.type-of-product_slide h4 {
+  font-size: 1.4rem;
+}
