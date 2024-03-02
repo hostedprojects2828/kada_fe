@@ -1,9 +1,7 @@
-import React, { useRef } from 'react'
 import { useSelector } from 'react-redux';
 
 const YourOrders = () => {
     const carts = useSelector((state) => state.products.carts);
-    const totalRef = useRef(null);
 
     //cart calculations
     const cartTotal = carts.reduce((total, item) => total + (item?.price || 0) * item.quantity, 0);
