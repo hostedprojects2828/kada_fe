@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import img from '../../assets/img/common/delivery_success.png';
 import img1 from '../../assets/img/email/success.png';
 import img2 from '../../assets/img/email/order-out-delivery.png';
+import img3 from '../../assets/img/email/order-shipped.png';
+import img4 from '../../assets/img/email/order-delivery.png';
+
 import pro1 from '../../assets/img/email/pro-3.jpg';
 import pro2 from '../../assets/img/email/pro-5.jpg';
 import spoce from '../../assets/img/email/space.jpg';
@@ -300,9 +303,7 @@ const OrderSuccess = () => {
                         >
                           DILIVERY ADDRESS
                         </h5>
-                        <p
-                          style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}
-                        >
+                        <p style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}>
                           268 Cambridge Lane New Albany,
                           <br /> IN 47150268 Cambridge Lane <br />
                           New Albany, IN 47150
@@ -311,10 +312,7 @@ const OrderSuccess = () => {
                       <td width='57' height='25' className='user-info'>
                         <img src={spoce} alt='img' height='25' width='57' />
                       </td>
-                      <td
-                        className='user-info'
-                        style={{ fontSize: '13px', fontWeight: '400', color: '#444444', letterSpacing: '0.2px', width: '50%' }}
-                      >
+                      <td className='user-info' style={{ fontSize: '13px', fontWeight: '400', color: '#444444', letterSpacing: '0.2px', width: '50%' }}>
                         <h5
                           style={{
                             fontSize: '16px',
@@ -330,9 +328,7 @@ const OrderSuccess = () => {
                         >
                           SHIPPING ADDRESS
                         </h5>
-                        <p
-                          style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}
-                        >
+                        <p style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}>
                           268 Cambridge Lane New Albany,
                           <br /> IN 47150268 Cambridge Lane <br />
                           New Albany, IN 47150
