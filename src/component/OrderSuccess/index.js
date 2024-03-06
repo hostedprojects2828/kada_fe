@@ -1,15 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 // import Img
-import img from '../../assets/img/common/delivery_success.png';
-import img1 from '../../assets/img/email/success.png';
-import img2 from '../../assets/img/email/order-out-delivery.png';
-import img3 from '../../assets/img/email/order-shipped.png';
-import img4 from '../../assets/img/email/order-delivery.png';
+import img1 from '../../assets/img/common/delivery_success.png';
+import success from '../../assets/img/email/success.png';
+import ofd from '../../assets/img/email/order-out-delivery.png';
+import shipped from '../../assets/img/email/order-shipped.png';
+import orderDelivered from '../../assets/img/email/order-delivery.png';
 
-import pro1 from '../../assets/img/email/pro-3.jpg';
-import pro2 from '../../assets/img/email/pro-5.jpg';
+// import pro1 from '../../assets/img/email/pro-3.jpg';
+// import pro2 from '../../assets/img/email/pro-5.jpg';
 import spoce from '../../assets/img/email/space.jpg';
+import { singleOrder } from '../../app/data/productsData';
 
 const OrderSuccess = () => {
   const history = useHistory();
@@ -45,12 +46,12 @@ const OrderSuccess = () => {
                   <tbody>
                     <tr>
                       <td>
-                        <img src={img} alt='img' style={{ marginBottom: '30px' }} />
+                        <img src={img1} alt='img' style={{ marginBottom: '30px' }} />
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <img src={img1} alt='img' />
+                        <img src={success} alt='img' />
                       </td>
                     </tr>
                     <tr>
@@ -60,14 +61,16 @@ const OrderSuccess = () => {
                     </tr>
                     <tr>
                       <td>
-                        <p>Payment Is Successfully Processsed And Your Order Is On The Way</p>
+                        <p>Payment Is Successfully Processed And Your Order Is On The Way</p>
                         <p>Transaction ID:267676GHERT105467</p>
                       </td>
                     </tr>
                     <tr></tr>
                     <tr>
                       <td>
-                        <img src={img2} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />
+                        {singleOrder.status === "shipped" && <img src={shipped} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
+                        {singleOrder.status === "delivered" && <img src={orderDelivered} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
+                        {singleOrder.status === "ofd" && <img src={ofd} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
                       </td>
                     </tr>
                   </tbody>
@@ -89,28 +92,31 @@ const OrderSuccess = () => {
                       <th>QUANTITY</th>
                       <th>PRICE</th>
                     </tr>
-                    <tr>
-                      <td>
-                        <img src={pro1} alt='img' width='70' />
-                      </td>
-                      <td valign='top' style={{ paddingLeft: '15px' }}>
-                        <h5 style={{ marginTop: '15px' }}>Three seater Wood Style sofa for Leavingroom </h5>
-                      </td>
-                      <td valign='top' style={{ paddingLeft: '15px' }}>
-                        <h5 style={{ fontSize: '14px', color: '#444', marginTop: '15px', marginBottom: ' 0px' }}>
-                          Size :<span> L</span>{' '}
-                        </h5>
-                        <h5 style={{ fontSize: '14px', color: '#444', marginTop: '10px' }}>
-                          QTY : <span>1</span>
-                        </h5>
-                      </td>
-                      <td valign='top' style={{ paddingLeft: '15px' }}>
-                        <h5 style={{ fontSize: '14px', Color: '#444', marginTop: '15px' }}>
-                          <b>$500</b>
-                        </h5>
-                      </td>
-                    </tr>
-                    <tr>
+                    {singleOrder.products.map((item, index) => (
+                      <tr key={item.product._id}>
+                        <td>
+                          <img src={item.product.img} alt='img' width='70' />
+                        </td>
+                        <td valign='top' style={{ paddingLeft: '15px' }}>
+                          <h5 style={{ marginTop: '15px' }}>{item.product.title}</h5>
+                        </td>
+                        <td valign='top' style={{ paddingLeft: '15px' }}>
+                          <h5 style={{ fontSize: '14px', color: '#444', marginTop: '15px', marginBottom: ' 0px' }}>
+                            Size :<span> L</span>{' '}
+                          </h5>
+                          <h5 style={{ fontSize: '14px', color: '#444', marginTop: '10px' }}>
+                            QTY : <span>{item.product.quantity}</span>
+                          </h5>
+                        </td>
+                        <td valign='top' style={{ paddingLeft: '15px' }}>
+                          <h5 style={{ fontSize: '14px', Color: '#444', marginTop: '15px' }}>
+                            <b>&#8377; {item.product.price}</b>
+                          </h5>
+                        </td>
+                      </tr>
+
+                    ))}
+                    {/* <tr>
                       <td>
                         <img src={pro2} alt='img' width='70' />
                       </td>
@@ -127,10 +133,10 @@ const OrderSuccess = () => {
                       </td>
                       <td valign='top' style={{ paddingLeft: '15px' }}>
                         <h5 style={{ fontSize: '14px', Color: '#444', marginTop: '15px' }}>
-                          <b>$650</b>
+                          <b>&#8377; {singleOrder.products[1].product.price}</b>
                         </h5>
                       </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                       <td
                         colSpan='2'
@@ -158,7 +164,7 @@ const OrderSuccess = () => {
                           borderLeft: 'unset',
                         }}
                       >
-                        <b>$1150</b>
+                        <b>&#8377; {singleOrder.total}</b>
                       </td>
                     </tr>
                     <tr>
@@ -188,7 +194,7 @@ const OrderSuccess = () => {
                           borderLeft: 'unset',
                         }}
                       >
-                        <b>$10</b>
+                        <b>&#8377;{singleOrder.discount}</b>
                       </td>
                     </tr>
                     <tr>
@@ -204,7 +210,7 @@ const OrderSuccess = () => {
                           borderRight: 'unset',
                         }}
                       >
-                        Gift Wripping:{' '}
+                        Gift Wrapping:{' '}
                       </td>
                       <td
                         colSpan='3'
@@ -219,7 +225,7 @@ const OrderSuccess = () => {
                           borderLeft: 'unset',
                         }}
                       >
-                        <b>$1140</b>
+                        <b>&#8377; {singleOrder.wrapping}</b>
                       </td>
                     </tr>
                     <tr>
@@ -249,7 +255,7 @@ const OrderSuccess = () => {
                           borderLeft: ' unset',
                         }}
                       >
-                        <b>$30</b>
+                        <b>&#8377;{singleOrder.shipping}</b>
                       </td>
                     </tr>
                     <tr>
@@ -279,7 +285,7 @@ const OrderSuccess = () => {
                           borderLeft: 'unset',
                         }}
                       >
-                        <b>$1170</b>
+                        <b>&#8377; {singleOrder.paymentIntent.amount}</b>
                       </td>
                     </tr>
                   </tbody>
@@ -301,12 +307,12 @@ const OrderSuccess = () => {
                             marginBottom: '13px',
                           }}
                         >
-                          DILIVERY ADDRESS
+                          DELIVERY ADDRESS
                         </h5>
                         <p style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}>
-                          268 Cambridge Lane New Albany,
-                          <br /> IN 47150268 Cambridge Lane <br />
-                          New Albany, IN 47150
+                          {singleOrder.shippingAddress.line1},
+                          <br /> {singleOrder.shippingAddress.line2}<br />
+                          {`${singleOrder.shippingAddress.state}, ${singleOrder.shippingAddress.country}, ${singleOrder.shippingAddress.pinCode}`}
                         </p>
                       </td>
                       <td width='57' height='25' className='user-info'>
@@ -329,9 +335,9 @@ const OrderSuccess = () => {
                           SHIPPING ADDRESS
                         </h5>
                         <p style={{ textAlign: 'left', fontWeight: 'normal', fontSize: '14px', color: '#000000', lineHeight: '21px', marginTop: '0' }}>
-                          268 Cambridge Lane New Albany,
-                          <br /> IN 47150268 Cambridge Lane <br />
-                          New Albany, IN 47150
+                          {singleOrder.billingAddress.line1},
+                          <br /> {singleOrder.billingAddress.line2}<br />
+                          {`${singleOrder.billingAddress.state}, ${singleOrder.billingAddress.country}, ${singleOrder.billingAddress.pinCode}`}
                         </p>
                       </td>
                     </tr>
