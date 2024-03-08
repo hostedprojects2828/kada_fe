@@ -62,17 +62,31 @@ const OrderSuccess = () => {
                     <tr>
                       <td>
                         <p>Payment Is Successfully Processed And Your Order Is On The Way</p>
-                        <p>Transaction ID:267676GHERT105467</p>
+                        <p>Transaction ID:{singleOrder.payment._id}</p>
                       </td>
                     </tr>
-                    <tr></tr>
-                    <tr>
+                    {/* <tr></tr> */}
+                    {/* <tr>
                       <td>
                         {singleOrder.status === "shipped" && <img src={shipped} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
                         {singleOrder.status === "delivered" && <img src={orderDelivered} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
                         {singleOrder.status === "ofd" && <img src={ofd} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
                       </td>
-                    </tr>
+                    </tr> */}
+                    {singleOrder.products.map((item) => (
+                      <>
+                        <tr >
+                          <th> {item.product.title}  </th>
+                        </tr>
+                        <tr >
+                          <td>
+                            {item.orderStatus === "shipped" && <img src={shipped} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
+                            {item.orderStatus === "delivered" && <img src={orderDelivered} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
+                            {item.orderStatus === "ofd" && <img src={ofd} alt='img' style={{ marginTop: '30px', marginBottom: '30px' }} />}
+                          </td>
+                        </tr>
+                      </>
+                    ))}
                   </tbody>
                 </table>
                 <table border='0' cellPadding='0' cellSpacing='0' className='mt-4'>
@@ -285,7 +299,7 @@ const OrderSuccess = () => {
                           borderLeft: 'unset',
                         }}
                       >
-                        <b>&#8377; {singleOrder.paymentIntent.amount}</b>
+                        <b>&#8377; {singleOrder.payment.amount}</b>
                       </td>
                     </tr>
                   </tbody>
@@ -347,7 +361,7 @@ const OrderSuccess = () => {
             </tr>
           </tbody>
         </table>
-      </div>
+      </div >
     </>
   );
 };

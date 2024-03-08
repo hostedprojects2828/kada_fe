@@ -1429,7 +1429,7 @@ export const singleOrder = {
         },
         "quantity": 1,
       },
-      "orderStatus": "shipped",
+      "orderStatus": "ofd",
       "count": 1,
       "_id": "65c66fd27ec95932be263409",
     },
@@ -1454,9 +1454,10 @@ export const singleOrder = {
       "_id": "65c66fd27ec95932be263410",
     }
   ],
-  "paymentIntent": {
+  "payment": {
+    "_id": "267676GHERT105467",
     "status": "success",
-    amount: 3872
+    "amount": 3872,
   },
   "orderby": {
     "_id": "65c3d62f1453b0f7dbae22a8",
