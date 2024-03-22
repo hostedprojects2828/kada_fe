@@ -1294,3 +1294,206 @@ export const CartProduct = [
     offerType: [OFFER_TYPE.newArrival, OFFER_TYPE.trending, OFFER_TYPE.todaysDeal],
   },
 ];
+
+export const orderData = [
+  {
+    "_id": "65c66ff17ec95932be263418",
+    "products": [
+      {
+        "product": {
+          "_id": "65c5b8f47f35139dbbc10944",
+          "title": "Beard oil.",
+          "slug": "beard-oil.",
+          "description": "none",
+          "price": 200,
+          "categories": [
+            {
+              "category": "65c3d6541453b0f7dbae22b0",
+              "_id": "65c5b8f47f35139dbbc10945"
+            }
+          ],
+          "brand": "thejus",
+          "quantity": 100,
+          "sold": 0,
+          "color": [],
+          "totalrating": "4",
+          "images": [],
+          "ratings": [
+            {
+              "star": 4,
+              "comment": "Super Greate product",
+              "postedby": "65c671f116ea2d3c509dd6f9",
+              "_id": "65c8a75842dd6b5b75b9665b"
+            }
+          ],
+          "createdAt": "2024-02-09T05:32:36.490Z",
+          "updatedAt": "2024-02-11T10:54:16.222Z",
+          "__v": 0
+        },
+        "orderStatus": "shipped",
+        "count": 10,
+        "_id": "65c66fd27ec95932be263407"
+      }
+    ],
+    "paymentIntent": {
+      "status": "shipped"
+    },
+    "orderby": {
+      "_id": "65c3d62f1453b0f7dbae22a6",
+      "firstname": "Vimal",
+      "lastname": "Malayil",
+      "email": "vimalvyshagam@gmail.com",
+      "mobile": "8129340696",
+      "role": "admin",
+      "isBlocked": false,
+    },
+    "createdAt": "2024-02-09T18:33:21.166Z",
+    "updatedAt": "2024-02-09T19:13:34.867Z",
+  },
+  {
+    "_id": "65c66ff17ec95932be263419",
+    "products": [
+      {
+        "product": {
+          "_id": "65c5b8f47f35139dbbc10945",
+          "title": "Shampoo",
+          "slug": "shampoo",
+          "description": "Gentle and nourishing shampoo for all hair types.",
+          "price": 150,
+          "categories": [
+            {
+              "category": "65c3d6541453b0f7dbae22b1",
+              "_id": "65c5b8f47f35139dbbc10946"
+            }
+          ],
+          "brand": "HairCare",
+          "quantity": 50,
+          "sold": 0,
+          "color": [],
+          "totalrating": "5",
+          "images": [],
+          "ratings": [
+            {
+              "star": 5,
+              "comment": "Love this shampoo!",
+              "postedby": "65c671f116ea2d3c509dd6fa",
+              "_id": "65c8a75842dd6b5b75b9665c"
+            }
+          ],
+          "createdAt": "2024-02-10T08:45:21.490Z",
+          "updatedAt": "2024-02-12T15:22:45.123Z",
+          "__v": 0
+        },
+        "orderStatus": "processing",
+        "count": 5,
+        "_id": "65c66fd27ec95932be263408"
+      }
+    ],
+    "paymentIntent": {
+      "status": "processing"
+    },
+    "orderby": {
+      "_id": "65c3d62f1453b0f7dbae22a7",
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "john.doe@example.com",
+      "mobile": "1234567890",
+      "role": "customer",
+      "isBlocked": false,
+    },
+    "createdAt": "2024-02-10T12:18:47.166Z",
+    "updatedAt": "2024-02-10T14:30:59.867Z",
+    "__v": 0
+  }
+]
+
+
+export const singleOrder = {
+  "_id": "65c66ff17ec95932be263420",
+  "products": [
+    {
+      "product": {
+        "_id": 1,
+        "labels": 'Trending',
+        "category": 'fashion',
+        "brand": 'fast track',
+        "img": img11,
+        "hover_img": img12,
+        "title": 'Green Dress For Woman',
+        "price": 3800,
+        "discountPrice": 669,
+        "description": `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.`,
+        "rating": {
+          "rate": 3.9,
+          "count": 30,
+        },
+        "quantity": 1,
+      },
+      "orderStatus": "ofd",
+      "count": 1,
+      "_id": "65c66fd27ec95932be263409",
+    },
+    {
+      "product": {
+        "_id": 2,
+        "labels": '45% OFF',
+        "category": 'fashion',
+        "img": img13,
+        "hover_img": img10,
+        "title": 'T-Shirt For Men',
+        "price": 72,
+        "description": `Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus.`,
+        "rating": {
+          "rate": 3.3,
+          "count": 80,
+        },
+        "quantity": 1,
+      },
+      "orderStatus": "shipped",
+      "count": 1,
+      "_id": "65c66fd27ec95932be263410",
+    }
+  ],
+  "payment": {
+    "_id": "267676GHERT105467",
+    "status": "success",
+    "amount": 3872,
+  },
+  "orderby": {
+    "_id": "65c3d62f1453b0f7dbae22a8",
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "john.doe@example.com",
+    "mobile": "1234567890",
+  },
+  "shippingAddress": {
+    "firstname": "John",
+    "lastname": "Doe",
+    "line1": "123 Main Street",
+    "line2": "Apt 45",
+    "pinCode": "12345",
+    "state": "State",
+    "country": "Country",
+    "landmark": "Near Park",
+    "phone": "9876543210",
+  },
+  "billingAddress": {
+    "firstname": "John",
+    "lastname": "Doe",
+    "line1": "456 Billing Street",
+    "line2": "Suite 789",
+    "pinCode": "54321",
+    "state": "State",
+    "country": "Country",
+    "landmark": "Opposite Mall",
+    "phone": "9876543210",
+  },
+  "status": "delivered",
+  "total": 3872,
+  "discount": 669,
+  "wrapping": 0,
+  "shipping": 0,
+  "createdAt": "2024-02-10T15:30:00.000Z",
+  "updatedAt": "2024-02-10T15:30:00.000Z",
+  "__v": 0
+};

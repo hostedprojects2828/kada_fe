@@ -16,7 +16,7 @@ const OrderTracking = () => {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    history.push('/order-complete');
+                    history.push('/order-success');
                   }}
                 >
                   <div className='form-group'>
