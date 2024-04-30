@@ -170,7 +170,7 @@ const SideBar = (props) => {
                 </label>
                 <div className='clear_button'>
                   <button
-                    className='theme-btn-one btn_sm btn-black-overlay'
+                    className='theme-btn-one btn_sm -black-overlay'
                     type='button'
                     onClick={() => {
                       props.filterEvent(1);

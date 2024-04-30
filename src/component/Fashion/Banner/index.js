@@ -1,5 +1,6 @@
 import React from 'react';
 import BanImg from '../../../assets/img/common/man_.png';
+import bestQualityImg from '../../../assets/img/common/best_quality_shap.png';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
@@ -22,13 +23,19 @@ const Banner = () => {
                 </Link>
               </div>
             </div>
-            <div className='col-lg-6'>
-              <div className='hero_img'>
+            <div class='col-lg-6 '>
+              <div class='hero_img'>
                 <img src={BanImg} alt='img' />
+                {/* <div class='premium-quality '>
+                  <img className='w-25' src={bestQualityImg} alt='img' />
+                </div> */}
               </div>
+
             </div>
+
           </div>
         </div>
+
       </section>
     </>
   );

@@ -7110,13 +7110,13 @@ table {
   border-top: 1px solid #fef5ef96;
 }
 
-.single-order-status{
+.single-order-status {
   box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
   margin-top: 10px;
   padding: 10px;
 }
 
-.single-order-status .single-order-status-heading{
+.single-order-status .single-order-status-heading {
   /* margin-top: 10px; */
   font-weight: bold;
 }
@@ -9005,4 +9005,64 @@ table {
   font-size: 14px;
   padding: 2px;
   margin: 2px 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.premium-quality {
+  position: relative;
+  top: 30%;
+}
+
+/* view-all button */
+
+.view-all {
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffff;
+  border: 2px solid var(--main-theme-color);
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--main-theme-color);
+}
+
+.view-all:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--main-theme-color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.view-all:hover {
+  color: #ffff;
+}
+
+.view-all:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.view-all:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.view-all:active:before {
+  background: #3a0ca3;
+  transition: background 0s;
 }
