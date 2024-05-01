@@ -6,7 +6,7 @@
 .search-input {
   display: flex;
 }
-.search-input input[type='text'] {
+.search-input input[type="text"] {
   padding: 10px;
   font-size: 0.789rem;
   border: 1px solid grey;
@@ -195,14 +195,13 @@ label {
   font-size: 0.95rem;
   color: var(--main-theme-color);
 }
- 
+
 .mobile-view {
   display: none;
 }
 
 /* Smartphones (portrait) ==================================== */
 @media only screen and (max-width: 420px) {
-  
   .larg-view {
     display: none;
   }
@@ -282,7 +281,10 @@ label {
   .mobile-title {
     font-size: 0.85rem !important;
   }
- 
+
+  .best-seller > .heading {
+    font-size: 1.2rem;
+  }
 }
 
 /* Smartphones (portrait) End ==================================== */
@@ -300,5 +302,4 @@ label {
   .mobile-hide {
     display: none !important;
   }
- 
 }

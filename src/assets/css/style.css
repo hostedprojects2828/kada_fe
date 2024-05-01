@@ -8971,6 +8971,15 @@ table {
   height: 100%;
   object-fit: cover;
 }
+.type-products{
+  z-index: 0;
+}
+.qualityImg{
+  position: absolute;
+  top: 660px;
+  right: 0;
+  height: 200px;
+}
 .type-of-product_custom-slider {
   display: flex;
   flex-direction: row;
@@ -9013,7 +9022,8 @@ table {
 
 .premium-quality {
   position: relative;
-  top: 30%;
+  top: 540px;
+  z-index: 200;
 }
 
 /* view-all button */
@@ -9063,6 +9073,6 @@ table {
 }
 
 .view-all:active:before {
-  background: #3a0ca3;
+  background: var(--main-theme-color);
   transition: background 0s;
 }

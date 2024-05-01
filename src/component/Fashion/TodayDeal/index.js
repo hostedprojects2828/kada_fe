@@ -50,11 +50,11 @@ const TodayDeal = () => {
       <section id="to_days_area" className="ptb-100 slider_arrows_one">
         <div className="container">
           {/* <Heading heading="Our Best Seller" para="See What Everyone Is Shopping from Andshop E-Commerce Today" /> */}
-          <div className="d-flex justify-content-between align-items-center mb-5">
-            <h2>OUR BEST SELLER</h2>
-            <div className='pointer '>
+          <div className="best-seller d-flex justify-content-between align-items-center mb-5">
+            <h2 className="heading">OUR BEST SELLER</h2>
+            {/* <div className='pointer '> */}
               <button className='view-all'>View All</button>
-            </div>
+            {/* </div> */}
           </div>
 
           <div className="row">
