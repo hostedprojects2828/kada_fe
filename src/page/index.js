@@ -18,11 +18,11 @@ const Fashion = () => {
       <Header />
       <Banner />
       <img className='d-none d-md-block qualityImg' src={bestQualityImg} alt='img' />
+      <TodayDeal />
       <TypesOfProduct />
       <BannerBottom />
       <HotProduct />
       <OfferTime />
-      <TodayDeal />
       <Trending />
       <Footer />
     </>

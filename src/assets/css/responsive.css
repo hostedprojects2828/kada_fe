@@ -457,6 +457,13 @@
     .newsleetre_modal.modal-body .offer_modal_left {
         padding: 25px 35px;
     }
+
+    /* .qualityImg {
+        position: absolute;
+        top: 530px;
+        right: 0;
+        height: 200px;
+      } */
 }
 
 @media (max-width: 576px) {
