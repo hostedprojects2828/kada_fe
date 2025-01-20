@@ -1,0 +1,122 @@
+.add-address-btn {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color: #3c71f0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.add-new-address {
+  background: none;
+}
+
+.section-title {
+  color: #3c71f0;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.address-item {
+  /* display: flex; */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  gap: 10px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.address-item.selected {
+  border-color: #3c71f0;
+  background-color: #f7faff;
+}
+
+.address-content {
+  display: flex;
+  /* flex-grow: 1; */
+  gap: 10px;
+}
+.radio-btn {
+  flex-grow: 1;
+}
+input[type='radio'] {
+  margin-top: 5px;
+}
+
+.address-details {
+  flex-grow: 8;
+}
+
+.address-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.address-name {
+  font-weight: bold;
+}
+
+.address-type {
+  background-color: #ccc;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.address-phone {
+  color: #666;
+  font-size: 14px;
+}
+
+.operation-button {
+  flex-grow: 1;
+  display: flex;
+  justify-content: end;
+  background-color: none;
+}
+
+.operation-button button {
+  background-color: #f95a25;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.deliver-btn {
+  color: #f95a25;
+}
+
+.operation-btn {
+  color: #0000ee;
+  cursor: pointer;
+}
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+}
+.grow {
+  background-color: DodgerBlue;
+  color: white;
+  margin: 10px;
+}
