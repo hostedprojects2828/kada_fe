@@ -8,7 +8,7 @@ import OfferTime from '../component/Fashion/OfferTime';
 import TypesOfProduct from '../component/Fashion/ProductsSliding';
 // import Blog from '../component/Fashion/Blog';
 // import InstgramSlider from '../component/Common/Instagram';
-import bestQualityImg from '../assets/img/common/best_quality_shap.png'
+import bestQualityImg from '../assets/img/common/best_quality_shap.png';
 import Footer from '../component/Common/Footer';
 import Header from '../component/Common/Header';
 
@@ -17,9 +17,9 @@ const Fashion = () => {
     <>
       <Header />
       <Banner />
-      <img className='d-none d-md-block qualityImg' src={bestQualityImg} alt='img' />
-      <TodayDeal />
       <TypesOfProduct />
+      {/* <img className="d-none d-md-block qualityImg" src={bestQualityImg} alt="img" /> */}
+      <TodayDeal />
       <BannerBottom />
       <HotProduct />
       <OfferTime />

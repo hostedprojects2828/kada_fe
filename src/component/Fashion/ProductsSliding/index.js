@@ -1,22 +1,17 @@
-import React, { useRef ,useState} from "react";
-import img1 from "../../../assets/img/offer/woman_.png";
-import img2 from "../../../assets/img/offer/woman1.png";
-import img3 from "../../../assets/img/offer/bag_.png";
-import img4 from "../../../assets/img/offer/woman4.png";
-import img5 from "../../../assets/img/offer/kids.png";
+import React, { useRef, useState } from 'react';
+import img1 from '../../../assets/img/offer/woman_.png';
+import img2 from '../../../assets/img/offer/woman1.png';
+import img3 from '../../../assets/img/offer/bag_.png';
+import img4 from '../../../assets/img/offer/woman4.png';
+import img5 from '../../../assets/img/offer/kids.png';
 const TypesOfProduct = () => {
   const products = [
-    { id: 1, name: "Oils", image: img1 },
-    { id: 2, name: "Ointments", image: img3 },
-    { id: 3, name: "Face Wash", image: img1 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
-    { id: 4, name: "Powders", image: img3 },
+    { id: 1, name: 'Oils', image: img1 },
+    { id: 2, name: 'Ointments', image: img3 },
+    { id: 3, name: 'Face Wash', image: img1 },
+    { id: 4, name: 'Jeans', image: img3 },
+    { id: 5, name: 'Shirts', image: img3 },
+    { id: 6, name: 'Shorts', image: img3 },
   ];
 
   const [dragging, setDragging] = useState(false);
@@ -38,19 +33,13 @@ const TypesOfProduct = () => {
     if (!dragging) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2; 
+    const walk = (x - startX) * 2;
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
     <>
-      <div 
-      ref={sliderRef} 
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      onMouseMove={handleMouseMove} 
-      className="type-of-product_custom-slider">
+      <div className="type-of-product_custom-slider">
         {products.map((slide, index) => (
           <div key={index} className="type-of-product_main_slide">
             <div className="type-of-product_slide">
