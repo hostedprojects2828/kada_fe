@@ -14,23 +14,28 @@ const BillingsInfo = ({ selectedAddress, handleUpdateAddress }) => {
 
   const handleSubmit = async (values) => {
     setSubmitButtonClicked(true);
-    localStorage.setItem('id', values.id);
-    localStorage.setItem('fname', values.fname);
-    localStorage.setItem('lname', values.lname);
-    localStorage.setItem('email', values.email);
-    localStorage.setItem('phone', values.phone);
-    localStorage.setItem('country', values.country);
-    localStorage.setItem('countryCode', values.countryCode);
-    localStorage.setItem('city', values.city);
-    localStorage.setItem('zip', values.zip);
-    localStorage.setItem('address', values.address);
-    localStorage.setItem('messages', values.messages);
-    await handleUpdateAddress(values);
+
+    if (formik.isValid) {
+      localStorage.setItem('id', formik.values?.id ?? 'brw-user');
+      localStorage.setItem('fname', formik.values.fname);
+      localStorage.setItem('lname', formik.values.lname);
+      localStorage.setItem('email', formik.values.email);
+      localStorage.setItem('phone', formik.values.phone);
+      localStorage.setItem('country', formik.values.country);
+      localStorage.setItem('countryCode', formik.values.countryCode);
+      localStorage.setItem('city', formik.values.city);
+      localStorage.setItem('zip', formik.values.zip);
+      localStorage.setItem('address', formik.values.address);
+      localStorage.setItem('messages', formik.values.messages);
+
+      await handleUpdateAddress(formik.values);
+    }
   };
 
   const formik = useFormik({
+    validateOnMount: true,
     initialValues: {
-      id: localStorage.getItem('id') ?? '',
+      id: localStorage.getItem('id') ?? 'brw-user',
       fname: localStorage.getItem('fname') ?? '',
       lname: localStorage.getItem('lname') ?? '',
       email: localStorage.getItem('email') ?? '',
@@ -58,8 +63,8 @@ const BillingsInfo = ({ selectedAddress, handleUpdateAddress }) => {
         errors.email = 'Email Required';
       } else {
         const rejex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const isvalid = rejex.test(values.email);
-        if (!isvalid) {
+        const isvalidE = rejex.test(values.email);
+        if (!isvalidE) {
           errors.email = 'Enter Valid Email';
         }
       }
@@ -92,7 +97,7 @@ const BillingsInfo = ({ selectedAddress, handleUpdateAddress }) => {
   });
 
   useEffect(() => {
-    if (selectedAddress) {
+    if (selectedAddress && selectedAddress.id) {
       formik.setValues({
         id: selectedAddress?.id ?? 'no Id',
         fname: selectedAddress?.fname ?? '',

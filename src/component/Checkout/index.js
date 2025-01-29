@@ -25,7 +25,6 @@ const addressesData = [
     id: 'address2',
     fname: 'Anushka',
     lname: 'pv',
-
     type: 'HOME',
     email: 'anu@gmail.com',
     country: 'India',
@@ -53,27 +52,102 @@ const addressesData = [
 
 const Checkout = () => {
   const [addresses, setAddressess] = useState([]);
-
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [isShowForm, SetIsShowForm] = useState(false);
+  const [isChangeAddress, setIsChangeAddress] = useState(false);
 
-  // Get address.
+  const addreId = localStorage.getItem('id') ?? '';
+
+  // Get address api call.
   useEffect(() => {
-    setAddressess([...addressesData]);
+    // if address in db then no show form, elso so form
+    if (addressesData) {
+      setAddressess([...addressesData]);
+      setSelectedAddress(addressesData[0]);
+    }
   }, []);
 
+  useEffect(() => {
+    let addressObj = {
+      id: localStorage.getItem('id') ?? '',
+      fname: localStorage.getItem('fname') ?? '',
+      lname: localStorage.getItem('lname') ?? '',
+      email: localStorage.getItem('email') ?? '',
+      phone: localStorage.getItem('phone') ?? '',
+      country: localStorage.getItem('country') ?? '',
+      countryCode: localStorage.getItem('countryCode') ?? '',
+      city: localStorage.getItem('city') ?? '',
+      pincode: localStorage.getItem('zip') ?? '',
+      address: localStorage.getItem('address') ?? '',
+      messages: localStorage.getItem('messages') ?? '',
+    };
+    if (addressObj && addressObj.id) {
+      setSelectedAddress(addressObj);
+      setAddressess([{ ...addressObj }]);
+      // handleShowChangeAddress(false);
+      // handleShowForm(false);
+    } else {
+      // handleShowForm(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // no selected address, no address from db then show form.
+    if (!selectedAddress && addresses && addresses.length == 0) {
+      console.log('addresses if----,', addresses);
+      console.log('isShowform----,', isShowForm);
+      console.log('isChangeAddress----,', isChangeAddress);
+      handleShowChangeAddress(false);
+      handleShowForm(true);
+    } else if (selectedAddress && addresses && addresses.length) {
+      console.log('addresses else----,', addresses);
+      console.log('isShowform----,', isShowForm);
+      console.log('isChangeAddress----,', isChangeAddress);
+      // handleShowChangeAddress(true);
+      handleShowForm(false);
+    }
+  }, [selectedAddress, addresses]);
   //   Handle selected address.
-  const handleSelectAddress = (address) => {
-    setSelectedAddress(address);
+  const handleSelectAddress = (values) => {
+    localStorage.setItem('id', values.id);
+    localStorage.setItem('fname', values.fname);
+    localStorage.setItem('lname', values.lname);
+    localStorage.setItem('email', values.email);
+    localStorage.setItem('phone', values.phone);
+    localStorage.setItem('country', values.country);
+    localStorage.setItem('countryCode', values.countryCode);
+    localStorage.setItem('city', values.city);
+    localStorage.setItem('zip', values.zip);
+    localStorage.setItem('address', values.address);
+    localStorage.setItem('messages', values.messages);
+    setSelectedAddress(values);
+    handleShowForm(true);
   };
 
   // To change address.
   const handleUpdateAddress = (address) => {
-    if (address && address.id) {
-      let udpatedAddressess = addresses.map((item) => (item.id === address.id ? address : item));
-      setAddressess([...udpatedAddressess]);
+    if (addresses && addresses.length) {
+      if (address && address.id) {
+        let udpatedAddressess = addresses.map((item) => (item.id === address.id ? address : item));
+        setAddressess([...udpatedAddressess]);
+      }
+    } else {
+      let add = setAddressess([{ ...address }]);
+      selectedAddress({ ...address });
     }
+    handleShowForm(false);
+    handleShowChangeAddress(true);
   };
-  // console.log('selectedAddress', selectedAddress);
+
+  // To show forms.
+  const handleShowForm = (isOpen) => {
+    SetIsShowForm(isOpen);
+  };
+
+  // To address list block
+  const handleShowChangeAddress = (isShow) => {
+    setIsChangeAddress(isShow);
+  };
 
   return (
     <>
@@ -84,9 +158,15 @@ const Checkout = () => {
               {/* if not loged in, show login page. */}
               {/* <Login/> */}
               {/* if address in not in DB, show billingInfo. */}
-              {!addresses && <BillingsInfo selectedAddress={selectedAddress} handleUpdateAddress={handleUpdateAddress} />}
+              {isShowForm && <BillingsInfo selectedAddress={selectedAddress} handleUpdateAddress={handleUpdateAddress} />}
               {/* if address avilable in DB, show address. */}
-              {addresses && <Address addresses={[...addresses]} handleSelectAddress={handleSelectAddress} />}
+              <Address
+                isChangeAddress={isChangeAddress}
+                addresses={[...addresses]}
+                selectedAddress={selectedAddress}
+                handleSelectAddress={handleSelectAddress}
+                handleShowChangeAddress={handleShowChangeAddress}
+              />
             </div>
 
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
