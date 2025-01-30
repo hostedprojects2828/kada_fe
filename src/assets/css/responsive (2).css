@@ -56,11 +56,8 @@
     margin-bottom: 30px;
   }
 
-  #shop_main_area
-    .row:nth-child(2)
-    .col-lg-12:nth-child(2)
-    .product_wrappers_list {
-    margin-top: 30px;
+  #shop_main_area .row:nth-child(2) .col-lg-12:nth-child(2) .product_wrappers_list {
+    /* margin-top: 30px; */
   }
 
   .product_wrappers_list .content .product_para_top {
@@ -321,7 +318,6 @@
   .newsleetre_modal.modal-body .offer_modal_left {
     padding: 25px 35px;
   }
- 
 }
 
 @media (max-width: 576px) {
